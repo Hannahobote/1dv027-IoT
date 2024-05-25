@@ -8,7 +8,7 @@ import dht # Import dht module
 # If you get a Failed to read sensor error, verify that the sensor is connected to the correct pin.
 # I use 17 only since it easily exposed on my extension board... you can use any other I/O pin.
 # sensor = dht.DHT22(Pin(17))
-sensor = dht.DHT11(Pin(17))
+sensor = dht.DHT11(Pin(13))
 
 while True:
   try:
@@ -24,6 +24,7 @@ while True:
     # These are hard errors and we want to stop the program
     # This includes things like you pulling a cable out or the sensor not responding
     print('Failed to read sensor.')
+    print(e)
     break
   except Exception as e:
     print('An error occurred:', e)
